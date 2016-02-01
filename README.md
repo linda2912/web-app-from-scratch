@@ -1,5 +1,7 @@
-# web-app-from-scratch
+# Web App From Scratch
 
 
 
-test update
+### Opdracht 2
+#### Voor- en nadelen JavaScript libraries/frameworks onderzoeken
+
