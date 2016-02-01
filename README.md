@@ -28,11 +28,11 @@
 
 
 **Bronvermelding:**
-..1. http://1stwebdesigner.com/pros-cons-frameworks/
-..2. http://www.ict.teno.be/oostende/vdabrefs/jsvdab/jsPraktijk_libraries.asp
-..3. https://nl.wikipedia.org/wiki/JavaScript-framework
-..4. http://archief.kaliber.net/javascript-libraries-friend-or-foe/
-..5. https://toddmotto.com/is-it-time-to-drop-jquery-essentials-to-learning-javascript-from-a-jquery-background/
+⋅⋅1. http://1stwebdesigner.com/pros-cons-frameworks/
+⋅⋅2. http://www.ict.teno.be/oostende/vdabrefs/jsvdab/jsPraktijk_libraries.asp
+⋅⋅3. https://nl.wikipedia.org/wiki/JavaScript-framework
+⋅⋅4. http://archief.kaliber.net/javascript-libraries-friend-or-foe/
+⋅⋅5. https://toddmotto.com/is-it-time-to-drop-jquery-essentials-to-learning-javascript-from-a-jquery-background/
 
 ___
 
@@ -52,8 +52,8 @@ ___
 
 
 **Bronvermelding**
-..1. https://www.apicasystem.com/blog/speed-up-the-pros-and-cons-of-single-page-sites/
-..2. http://blog.incubasys.com/pro-and-cons-of-one-page-website/
+⋅⋅1. https://www.apicasystem.com/blog/speed-up-the-pros-and-cons-of-single-page-sites/
+⋅⋅2. http://blog.incubasys.com/pro-and-cons-of-one-page-website/
 
 
 
