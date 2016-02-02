@@ -24,7 +24,7 @@
 
 
 ######Waarom native JavaScript en geen jQuery
-#####Doordat HTML5 steeds krachtiger wordt en meer mogelijkheden biedt, hebben we jQuery steeds minder nodig, en wordt het steeds nuttelozer! (5)
+Doordat HTML5 steeds krachtiger wordt en meer mogelijkheden biedt, hebben we jQuery steeds minder nodig, en wordt het steeds nuttelozer! (5)
 
 
 **Bronvermelding:**
@@ -34,7 +34,8 @@
 * 4. http://archief.kaliber.net/javascript-libraries-friend-or-foe/
 * 5. https://toddmotto.com/is-it-time-to-drop-jquery-essentials-to-learning-javascript-from-a-jquery-background/
 
-___
+
+..........
 
 
 ### Opdracht 3
