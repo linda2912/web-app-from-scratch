@@ -35,7 +35,7 @@ Doordat HTML5 steeds krachtiger wordt en meer mogelijkheden biedt, hebben we jQu
 * 5. https://toddmotto.com/is-it-time-to-drop-jquery-essentials-to-learning-javascript-from-a-jquery-background/
 
 
-..........
+___
 
 
 ### Opdracht 3
