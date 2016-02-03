@@ -239,7 +239,7 @@
 
     // FUNCTIES VOOR DEbUGGING
 
-    var debug {
+    var debug = {
         geoErrorHandler: function (code, message) {
             message('geo.js error ' + code + ': '+ message);
         }
