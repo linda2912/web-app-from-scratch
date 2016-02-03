@@ -81,7 +81,7 @@
         }
 
         // Start een interval welke op basis van refreshRate de positie updated
-        _start_interval: function (event) {
+        startInterval: function (event) {
             deBug.message("GPS is beschikbaar, vraag positie.");
             this._update_position();
             interval = self.setInterval(_update_position, refreshRate);
@@ -89,7 +89,7 @@
         }
 
         // Vraag de huidige positie aan geo.js, stel een callback in voor het resultaat
-        _update_position: function () {
+        updatePosition: function () {
             intervalCounter ++;
             geo_position_js.getCurrentPosition(this._set_position, deBug._geo_error_handler, {
                 enableHighAccuracy: true
