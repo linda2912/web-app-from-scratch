@@ -32,17 +32,17 @@
     var ET = new EventTarget();
 
     // Event functies - bron: http://www.nczonline.net/blog/2010/03/09/custom-events-in-javascript/ Copyright (c) 2010 Nicholas C. Zakas. All rights reserved. MIT License
-    // Gebruik: ET.addListener('foo', handleEvent); ET.fire('event_name'); ET.removeListener('foo', handleEvent);
+    // Gebruik: ET.addListener('foo', handleEvent); ET.fire('eventname'); ET.removeListener('foo', handleEvent);
     
     function EventTarget () {
-        this._listeners = {}
+        this.listeners = {}
     }
 
     EventTarget.prototype = {
         constructor: EventTarget,
         addListener: function (a, c) {
-            "undefined" == typeof this._listeners[a] && (this._listeners[a] = []);
-            this._listeners[a].push(c)
+            "undefined" == typeof this.listeners[a] && (this.listeners[a] = []);
+            this.listeners[a].push(c)
         },
         fire: function (a) {
             "string" == typeof a && (a = {
@@ -50,13 +50,13 @@
             });
             a.target || (a.target = this);
             if (!a.type) throw Error("Event object missing 'type' property.");
-            if (this._listeners[a.type] instanceof Array) 
-                for (var c = this._listeners [a.type], b = 0, d = c.length; b < d; b++) c[b].call(this,a)
+            if (this.listeners[a.type] instanceof Array) 
+                for (var c = this.listeners [a.type], b = 0, d = c.length; b < d; b++) c[b].call(this,a)
         },
         removeListener: function (a, c) {
-            if (this._listeners[a] instanceof Array)
+            if (this.listeners[a] instanceof Array)
                 for (var b =
-                    this._listeners[a], d = 0, e = b.length; d < e; d ++)
+                    this.listeners[a], d = 0, e = b.length; d < e; d ++)
                     if (b[d] === c) {
                         b.splice(d, 1);
                         break
@@ -72,42 +72,42 @@
         init:function() { //method
             debug.message("Controleer of GPS beschikbaar is...");
 
-            ET.addListener(gpsAvailable, this._startInterval);
+            ET.addListener(gpsAvailable, this.startInterval);
             ET.addListener(gpsUnavailable, function () {
                 debug.message('GPS is niet beschikbaar.')
             });
 
-            (geo_position_js.init()) ? ET.fire(gpsAvailable): ET.fire(gpsUnavailable);
+            (geopositionjs.init()) ? ET.fire(gpsAvailable): ET.fire(gpsUnavailable);
         }
 
         // Start een interval welke op basis van refreshRate de positie updated
 
 
-        _startInterval: function (event) {
+        startInterval: function (event) {
             debug.message("GPS is beschikbaar, vraag positie.");
-            this._updatePosition();
-            interval = self.setInterval(_updatePosition, refreshRate);
-            ET.addListener(positionUpdated, this._checkLocations);
+            this.updatePosition();
+            interval = self.setInterval(updatePosition, refreshRate);
+            ET.addListener(positionUpdated, this.checkLocations);
         }
 
         // Vraag de huidige positie aan geo.js, stel een callback in voor het resultaat
-        _updatePosition: function () {
+        updatePosition: function () {
 
             intervalCounter ++;
-            geo_position_js.getCurrentPosition(this._setPosition, debug.geoErrorHandler, {
+            geopositionjs.getCurrentPosition(this.setPosition, debug.geoErrorHandler, {
                 enableHighAccuracy: true
             });
         }
 
         // Callback functie voor het instellen van de huidige positie, vuurt een event af
-        _setPosition: function (position) {
+        setPosition: function (position) {
             currentPosition = position;
             ET.fire("positionUpdated");
             debug.message(intervalCounter + " positie lat:" + position.coords.latitude + " long:" + position.coords.longitude);
         }
 
         // Controleer de locaties en verwijs naar een andere pagina als we op een locatie zijn
-        _checkLocations: function (event) {
+        checkLocations: function (event) {
             // Liefst buiten google maps om... maar helaas, ze hebben alle coole functies
             for (var i = 0; i < locaties.length; i++) {
                 var locatie = {
@@ -117,7 +117,7 @@
                     }
                 };
 
-                if (this._calculateDistance(locatie, currentPosition) < locaties[i][2]) {
+                if (this.calculateDistance(locatie, currentPosition) < locaties[i][2]) {
 
                     // Controle of we NU op die locatie zijn, zo niet gaan we naar de betreffende page
                     if (window.location != locaties[i][1] && localStorage[locaties[i][0]] == "false") {
@@ -138,7 +138,7 @@
         }
 
         // Bereken het verchil in meters tussen twee punten
-        _calculateDistance: function (p1, p2) {
+        calculateDistance: function (p1, p2) {
             var pos1 = new google.maps.LatLng(p1.coords.latitude, p1.coords.longitude);
             var pos2 = new google.maps.LatLng(p2.coords.latitude, p2.coords.longitude);
             return Math.round(google.maps.geometry.spherical.computeDistanceBetween(pos1, pos2), 0);

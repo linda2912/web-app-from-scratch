@@ -9,6 +9,7 @@
 		}
 	};
 
+
 	var routes = {
 
 	    oldUrl: "",
@@ -17,6 +18,7 @@
 	    newHash: "",
 
 		init: function () {
+			sections.toggle(null, 'home');
 			window.addEventListener('hashchange', function (event) {
 				console.log(event);
 
@@ -37,7 +39,6 @@
 
 	var sections = {
 		toggle: function (oldHash, newHash) {
-
 			var oldHashElement,
 			    newHashElement = false;
 
