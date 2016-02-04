@@ -5,9 +5,9 @@
 }
 
 .nav li{
-	background-color: #1abc9c;
+	background-color: #34495e;
 	padding: 1em;
-	border-bottom: 1px solid #16a085;
+	/*border-bottom: 1px solid #16a085;*/
 	
 }
 .nav a{
@@ -17,9 +17,10 @@
 .nav{
 	position: fixed;
 	width: 100%;
+	text-align: center;
 }
 .startScreen{
-	background-color: #2ecc71;
+	background-color: #2980b9;
 	height: 50em;
 	padding-top: 10em;
 	color: white;
