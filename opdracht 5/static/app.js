@@ -1,16 +1,16 @@
 
-(function() { 
+(function() {  // use IIFE to avoid global vars
 	
-	"use strict" 
+	"use strict" // with strict mode, you can not, for ecemple, use undeclared variables
 
-	var app = { 
+	var app = { // literal object
 		init: function() { 
-			routes.init(); //routes init aanroepen
+			routes.init(); // run the function app.routes.init.
 		}
 	};
 
 
-	var routes = {//object literal
+	var routes = { //routes function
 
 	    oldUrl: "",
 	    newUrl: "",
@@ -19,17 +19,14 @@
 
 		init: function () { //method
 			sections.toggle(null, 'home'); 
-			window.addEventListener('hashchange', function (event) { // De eventlistener verwijst naar sections.toggle(route) met de route die je hebt aangeklikt als parameter
+			window.addEventListener('hashchange', function (event) { //if the hash changes run sectons.toggle
 
 				this.newUrl = event.newURL.split('#'); //https://css-tricks.com/snippets/javascript/get-url-and-url-parts-in-javascript/
 				this.oldUrl = event.oldURL.split('#');
 
-
 				this.newHash = this.newUrl[1];
-				// console.log('newHash: ' + this.newHash);
 
 				this.oldHash = oldUrl[1];
-				// console.log('oldHash: ' + this.oldHash);
 
 				sections.toggle(oldHash, newHash);
 
@@ -37,7 +34,7 @@
 		}
 	};
 
-	var sections = {
+	var sections = { //toggle between the sections
 		toggle: function (oldHash, newHash) {
 			var oldHashElement,
 			    newHashElement = false;
@@ -58,6 +55,6 @@
 
 	
 	
-	app.init(); //applicatie starten
+	app.init(); //run the app
 
 }());
