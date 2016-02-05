@@ -43,7 +43,7 @@
 			// gewenste sectie wordt getoond en alle andere secties (in dit geval één) worden verborgen
 			if (oldHash) {
 
-				oldHashElement = document.getElementById(oldHash); //id?
+				oldHashElement = document.getElementById(oldHash); 
 				oldHashElement.classList.add('invisible');
 			}
 
