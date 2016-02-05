@@ -1,7 +1,7 @@
 
 (function() {  // use IIFE to avoid global vars
 	
-	"use strict" // with strict mode, you can not, for ecemple, use undeclared variables
+	"use strict" // with strict mode, you can not, for example, use undeclared variables
 
 	var app = { // literal object
 		init: function() { 
