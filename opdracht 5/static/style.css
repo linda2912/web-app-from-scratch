@@ -7,18 +7,19 @@
 .nav li{
 	background-color: #34495e;
 	padding: 1em;
-	/*border-bottom: 1px solid #16a085;*/
 	
 }
 .nav a{
 	color: white;
 	text-decoration: none;
 }
+
 .nav{
 	position: fixed;
 	width: 100%;
 	text-align: center;
 }
+
 .startScreen{
 	background-color: #2980b9;
 	height: 50em;
@@ -26,12 +27,19 @@
 	color: white;
 	text-align: center;
 }
+
 .frontEndBestPractices{
 	background-color: #3498db;
 	height: 50em;
 	padding-top: 10em;
 	color: white;
 	text-align: center;
+}
+
+.frontEndBestPractices ul{
+	text-align: left;
+	margin: 2em;
+	line-height: 2em;
 }
 
 .invisible{
