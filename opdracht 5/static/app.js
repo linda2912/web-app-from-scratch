@@ -1,35 +1,35 @@
 
-(function() {
+(function() { 
 	
-	"use strict"
+	"use strict" 
 
-	var app = {
-		init: function() {
-			routes.init();
+	var app = { 
+		init: function() { 
+			routes.init(); //routes init aanroepen
 		}
 	};
 
 
-	var routes = {
+	var routes = {//object literal
 
 	    oldUrl: "",
 	    newUrl: "",
 	    oldHash: "",
 	    newHash: "",
 
-		init: function () {
-			sections.toggle(null, 'home');
-			window.addEventListener('hashchange', function (event) {
-				console.log(event);
+		init: function () { //method
+			sections.toggle(null, 'home'); 
+			window.addEventListener('hashchange', function (event) { // De eventlistener verwijst naar sections.toggle(route) met de route die je hebt aangeklikt als parameter
 
-				this.newUrl = event.newURL.split('#');
+				this.newUrl = event.newURL.split('#'); //https://css-tricks.com/snippets/javascript/get-url-and-url-parts-in-javascript/
 				this.oldUrl = event.oldURL.split('#');
 
+
 				this.newHash = this.newUrl[1];
-				console.log('newHash: ' + this.newHash);
+				// console.log('newHash: ' + this.newHash);
 
 				this.oldHash = oldUrl[1];
-				console.log('oldHash: ' + this.oldHash);
+				// console.log('oldHash: ' + this.oldHash);
 
 				sections.toggle(oldHash, newHash);
 
@@ -43,10 +43,10 @@
 			    newHashElement = false;
 
 
-			// Oldroute uitzetten
+			// gewenste sectie wordt getoond en alle andere secties (in dit geval één) worden verborgen
 			if (oldHash) {
 
-				oldHashElement = document.getElementById(oldHash);
+				oldHashElement = document.getElementById(oldHash); //id?
 				oldHashElement.classList.add('invisible');
 			}
 
@@ -58,6 +58,6 @@
 
 	
 	
-	app.init();
+	app.init(); //applicatie starten
 
 }());

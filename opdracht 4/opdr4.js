@@ -29,10 +29,10 @@
         intervalCounter = 
         updateMap = false;
     var locationRow = markerRow = [];
-    var ET = new EventTarget();
+    var et = new EventTarget();
 
     // Event functies - bron: http://www.nczonline.net/blog/2010/03/09/custom-events-in-javascript/ Copyright (c) 2010 Nicholas C. Zakas. All rights reserved. MIT License
-    // Gebruik: ET.addListener('foo', handleEvent); ET.fire('eventname'); ET.removeListener('foo', handleEvent);
+    // Gebruik: et.addListener('foo', handleEvent); et.fire('eventname'); et.removeListener('foo', handleEvent);
     
     function EventTarget () {
         this.listeners = {}
@@ -72,12 +72,12 @@
         init:function() { //method
             debug.message("Controleer of GPS beschikbaar is...");
 
-            ET.addListener(gpsAvailable, this.startInterval);
-            ET.addListener(gpsUnavailable, function () {
+            et.addListener(gpsAvailable, this.startInterval);
+            et.addListener(gpsUnavailable, function () {
                 debug.message('GPS is niet beschikbaar.')
             });
 
-            (geopositionjs.init()) ? ET.fire(gpsAvailable): ET.fire(gpsUnavailable);
+            (geopositionjs.init()) ? et.fire(gpsAvailable): et.fire(gpsUnavailable);
         }
 
         // Start een interval welke op basis van refreshRate de positie updated
@@ -87,7 +87,7 @@
             debug.message("GPS is beschikbaar, vraag positie.");
             this.updatePosition();
             interval = self.setInterval(updatePosition, refreshRate);
-            ET.addListener(positionUpdated, this.checkLocations);
+            et.addListener(positionUpdated, this.checkLocations);
         }
 
         // Vraag de huidige positie aan geo.js, stel een callback in voor het resultaat
@@ -102,7 +102,7 @@
         // Callback functie voor het instellen van de huidige positie, vuurt een event af
         setPosition: function (position) {
             currentPosition = position;
-            ET.fire("positionUpdated");
+            et.fire("positionUpdated");
             debug.message(intervalCounter + " positie lat:" + position.coords.latitude + " long:" + position.coords.longitude);
         }
 
@@ -215,7 +215,7 @@
             });
 
             // Zorg dat de kaart geupdated wordt als het positionUpdated event afgevuurd wordt
-            ET.addListener(positionUpdated, updatePositie);
+            et.addListener(positionUpdated, updatePositie);
         }
 
 
