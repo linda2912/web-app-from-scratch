@@ -14,47 +14,39 @@
 
 	    oldUrl: "",
 	    newUrl: "",
-	    oldHash: "",
-	    newHash: "",
 
 		init: function () { //method
 			sections.toggle(null, 'home'); 
-			window.addEventListener('hashchange', function (event) { //if the hash changes run sectons.toggle
+			window.addEventListener('hashchange', function (event) { //if the hash changes run sections.toggle
 
-				this.newUrl = event.newURL.split('#'); //https://css-tricks.com/snippets/javascript/get-url-and-url-parts-in-javascript/
-				this.oldUrl = event.oldURL.split('#');
+				this.newUrl = event.newURL.split('#')[1];
+				this.oldUrl = event.oldURL.split('#')[1];
 
-				this.newHash = this.newUrl[1];
-
-				this.oldHash = oldUrl[1];
-
-				sections.toggle(oldHash, newHash);
+				sections.toggle(this.oldUrl, this.newUrl);
 
 			}, false);
 		}
 	};
 
-	var sections = { //toggle between the sections
-		toggle: function (oldHash, newHash) {
-			var oldHashElement,
-			    newHashElement = false;
+	var sections = { // toggle between the sections
+		toggle: function (oldRoute, newRoute) {
+			var oldRouteElement,
+			    newRouteElement = false;
 
 
-			// gewenste sectie wordt getoond en alle andere secties (in dit geval één) worden verborgen
-			if (oldHash) {
+			// desired section is shown and will be hidden from all the other sections
+			if (oldRoute) {
 
-				oldHashElement = document.getElementById(oldHash); 
-				oldHashElement.classList.add('invisible');
+				oldRouteElement = document.getElementById(oldRoute);
+				oldRouteElement.classList.add('invisible');
 			}
 
-			newHashElement = document.getElementById(newHash);
-			newHashElement.classList.remove('invisible');
+			newRouteElement = document.getElementById(newRoute);
+			newRouteElement.classList.remove('invisible');
 
 		}
 	}
 
-	
-	
 	app.init(); //run the app
 
 }());
